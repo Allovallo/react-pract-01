@@ -1,13 +1,19 @@
 import css from './statistics.module.css'
-// import PropTypes from 'prop-types';
+import {ListItem, Label, Percentage, Section, Title, StatList} from './statistics.css'
+import PropTypes from 'prop-types';
 
 export const StatisticalItem = ({label, percentage, countElements}) => {
     return (
-        <li countElements={ countElements } className={ css.listItem } >
-            <span className={css.label}>{ label }</span>
-            <span className={css.percentage}>{ percentage }</span>
-        </li>
+        <ListItem countElements={ countElements } className={ css.listItem } >
+            <Label className={css.label}>{ label }</Label>
+            <Percentage className={css.percentage}>{ percentage }%</Percentage>
+        </ListItem>
     )
+}
+
+StatisticalItem.propTypes = {
+    label: PropTypes.string,
+    percentage: PropTypes.number,
 }
 
 export const Statistics = ({title, stats }) => {
@@ -21,15 +27,19 @@ export const Statistics = ({title, stats }) => {
     )
 
     return (
-        <section className={css.section}>
+        <Section className={css.section}>
             {
-                // title !== undefined &&
-                <h2 className={css.title}>{title}</h2>
+                title !== undefined &&
+                <Title className={css.title}>{title}</Title>
             }
 
-            <ul className={css.statList}>
+            <StatList className={css.statList}>
                 {statItems}
-            </ul>
-        </section>
+            </StatList>
+        </Section>
     )
+}
+
+Statistics.propTypes = {
+    title: PropTypes.string,
 }
