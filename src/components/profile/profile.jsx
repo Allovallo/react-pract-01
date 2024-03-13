@@ -1,7 +1,7 @@
 import css from './profile.module.css'
 import PropTypes from 'prop-types';
 
-export const UserDescription = ({name, tag, location, avatar}) => {
+const UserDescription = ({name, tag, location, avatar}) => {
     return (
         <div className={css.description}>
             <img
