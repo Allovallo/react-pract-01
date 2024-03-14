@@ -1,14 +1,15 @@
-import css from './friendlist.module.css'
+// import css from './friendlist.module.css'
+import {Li, Status, AvatarEl, Name, Ul} from './friendlist.css'
 
 export const FriendListItem = ({ avatar, name, isOnline }) => {
     const alt = `Аватар ${name}`;
     
     return (
-        <li className={css.li}>
-            <span className={css.status} isOnline={isOnline}></span>
-            <img className={css.avatarEl} src={avatar} alt={alt} width='48'></img>
-            <p className={css.name}>{ name }</p>
-        </li>
+        <Li>
+            <Status isOnline={isOnline} />
+            <AvatarEl src={avatar} alt={alt} width='48' />
+            <Name>{ name }</Name>
+        </Li>
     )
 }
 
@@ -22,8 +23,8 @@ export const FriendList = ({ friends}) => {
         />
     )
     return (
-        <li className={css.li}>
+        <Ul>
             {listItems}
-        </li>
+        </Ul>
     )    
 }
