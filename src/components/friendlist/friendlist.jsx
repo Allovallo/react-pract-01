@@ -1,5 +1,5 @@
-// import css from './friendlist.module.css'
-import {Li, Status, AvatarEl, Name, Ul} from './friendlist.css'
+import { Li, Status, AvatarEl, Name, Ul } from './friendlist.css'
+import PropTypes from 'prop-types'
 
 export const FriendListItem = ({ avatar, name, isOnline }) => {
     const alt = `Аватар ${name}`;
@@ -11,6 +11,12 @@ export const FriendListItem = ({ avatar, name, isOnline }) => {
             <Name>{ name }</Name>
         </Li>
     )
+}
+
+FriendListItem.propTypes = {
+    avata: PropTypes.string,
+    name: PropTypes.string,
+    isOnline: PropTypes.bool,
 }
 
 export const FriendList = ({ friends}) => {
@@ -27,4 +33,13 @@ export const FriendList = ({ friends}) => {
             {listItems}
         </Ul>
     )    
+}
+
+FriendList.propTypes = {
+    friends: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number,
+        avatar: PropTypes.string,
+        name: PropTypes.string.isRequired,
+        isOnline: PropTypes.bool,
+    }))
 }
